@@ -20,8 +20,8 @@ jobs:
       - name: Build
         env: 
           REPOSITORY_NAME: echo ${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}
-        run: flutter pub get
-        run: flutter build web --web-renderer html --base-href $REPOSITORY_NAME
+      - run: flutter pub get
+      - run: flutter build web --web-renderer html --base-href $REPOSITORY_NAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
