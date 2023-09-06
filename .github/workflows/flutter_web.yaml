@@ -16,8 +16,7 @@ jobs:
         with:
           channel: 'stable'
           cache: true
-        env: 
-          REPOSITORY_NAME: echo ${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}
+      - run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}" >> $GITHUB_ENV
       - run: flutter pub get
       - run: flutter build web --web-renderer html --base-href ${{ env.REPOSITORY_NAME }}
 
